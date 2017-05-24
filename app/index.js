@@ -39,16 +39,23 @@ import ReactDOM from 'react-dom';
 // );
 
 /* Display2 component: React.Children.toArray(children) */
-import { Display2, WhenTruthy, WhenFalsy } from './components/Display2';
-const age = 20;
+// import { Display2, WhenTruthy, WhenFalsy } from './components/Display2';
+// const age = 20;
+// ReactDOM.render(
+//     <Display2 ifTruthy={age >= 21}>
+//         <WhenTruthy>
+//             <h1>You can Enter</h1>
+//         </WhenTruthy>
+//         <WhenFalsy>
+//             <h1>Beat it Kid</h1>
+//         </WhenFalsy>
+//     </Display2>,
+//     document.getElementById('app')
+// );
+
+/* CountryList: fetch api with componentWillMount or componentDidMount */
+import CountryList from './components/CountryList';
 ReactDOM.render(
-    <Display2 ifTruthy={age >= 21}>
-        <WhenTruthy>
-            <h1>You can Enter</h1>
-        </WhenTruthy>
-        <WhenFalsy>
-            <h1>Beat it Kid</h1>
-        </WhenFalsy>
-    </Display2>,
+    <CountryList />,
     document.getElementById('app')
 );
