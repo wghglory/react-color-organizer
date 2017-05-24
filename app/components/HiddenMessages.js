@@ -1,5 +1,8 @@
 /**
  * 3 messages, display 1 message at a single time, the others mark 'x'. Every second message switches.
+ * componentWillReceiveProps: when parent props change, child component componentWillReceiveProps will invoke
+ * it's the only place that can setState for updating life events. 
+ * Other updating events like shouldComponentUpdate, componentWillUpdate, componentDidUpdate cannot setState
  */
 import React from 'React';
 import PropTypes from 'prop-types';

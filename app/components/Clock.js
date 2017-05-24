@@ -1,3 +1,6 @@
+/**
+ * componentDidMount, componentWillUnmount to start/end background timer task
+ */
 import React from 'react';
 import PropTypes from 'prop-types';
 import { getClockTime } from '../utils/time';

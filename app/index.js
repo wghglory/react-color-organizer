@@ -22,8 +22,33 @@ import ReactDOM from 'react-dom';
 // );
 
 /* Hidden Message demo -- componentWillReceiveProps */
-import HiddenMessages from './components/HiddenMessages';
+// import HiddenMessages from './components/HiddenMessages';
+// ReactDOM.render(
+//     <HiddenMessages />,
+//     document.getElementById('app')
+// );
+
+/* Display component: React.Children.only(children) */
+// import Display from './components/Display';
+// const age = 22;
+// ReactDOM.render(
+//     <Display ifTruthy={age >= 21}>
+//         <h1>You can enter</h1>
+//     </Display>,
+//     document.getElementById('app')
+// );
+
+/* Display2 component: React.Children.toArray(children) */
+import { Display2, WhenTruthy, WhenFalsy } from './components/Display2';
+const age = 20;
 ReactDOM.render(
-    <HiddenMessages />,
+    <Display2 ifTruthy={age >= 21}>
+        <WhenTruthy>
+            <h1>You can Enter</h1>
+        </WhenTruthy>
+        <WhenFalsy>
+            <h1>Beat it Kid</h1>
+        </WhenFalsy>
+    </Display2>,
     document.getElementById('app')
 );
