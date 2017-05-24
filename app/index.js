@@ -54,8 +54,17 @@ import ReactDOM from 'react-dom';
 // );
 
 /* CountryList: fetch api with componentWillMount or componentDidMount */
-import CountryList from './components/CountryList';
+// import CountryList from './components/CountryList';
+// ReactDOM.render(
+//     <CountryList />,
+//     document.getElementById('app')
+// );
+
+/* Timeline: d3 library */
+// import App from './components/Timeline';
+import Timeline from './components/Timeline2';
 ReactDOM.render(
-    <CountryList />,
+    // <App />,
+    <Timeline name="History of Skiing" />,
     document.getElementById('app')
 );
