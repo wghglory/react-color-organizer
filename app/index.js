@@ -13,13 +13,13 @@ import ReactDOM from 'react-dom';
 
 
 /* Clock component: componentDidMount, componentWillUnmount, unmountComponentAtNode */
-import Clock from './components/Clock';
-const target = document.getElementById('app');
+// import Clock from './components/Clock';
+// const target = document.getElementById('app');
 
-ReactDOM.render(
-    <Clock onClose={() => ReactDOM.unmountComponentAtNode(target)} />,
-    target
-);
+// ReactDOM.render(
+//     <Clock onClose={() => ReactDOM.unmountComponentAtNode(target)} />,
+//     target
+// );
 
 /* HiddenMessages component: componentWillReceiveProps */
 // import HiddenMessages from './components/HiddenMessages';
@@ -75,3 +75,22 @@ ReactDOM.render(
 //     <Timeline name="History of Skiing" />,
 //     document.getElementById('app')
 // );
+
+/* Flux count down */
+import Countdown from './flux/CountdownComponent';
+import CountdownDispatcher from './flux/dispatcher.countdown';
+import countdownActions from './flux/action.countdown';
+import CountdownStore from './flux/store.countdown';
+
+const appDispatcher = new CountdownDispatcher();
+const actions = countdownActions(appDispatcher);
+const store = new CountdownStore(10, appDispatcher);
+
+const render = count => ReactDOM.render(
+  <Countdown count={count} {...actions} />,
+  document.getElementById('app')
+);
+
+store.on("TICK", () => render(store.count));
+store.on("RESET", () => render(store.count));
+render(store.count);
