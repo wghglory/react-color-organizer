@@ -1,5 +1,5 @@
-const oneSecond = () => 1000;
-const getCurrentTime = () => new Date();
+export const oneSecond = () => 1000;
+export const getCurrentTime = () => new Date();
 
 export const abstractClockTime = date =>
   ({

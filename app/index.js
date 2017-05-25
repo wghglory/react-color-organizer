@@ -13,13 +13,13 @@ import ReactDOM from 'react-dom';
 
 
 /* Clock component: componentDidMount, componentWillUnmount, unmountComponentAtNode */
-// import Clock from './components/Clock';
-// const target = document.getElementById('app');
+import Clock from './components/Clock';
+const target = document.getElementById('app');
 
-// ReactDOM.render(
-//     <Clock onClose={() => ReactDOM.unmountComponentAtNode(target)} />,
-//     target
-// );
+ReactDOM.render(
+    <Clock onClose={() => ReactDOM.unmountComponentAtNode(target)} />,
+    target
+);
 
 /* HiddenMessages component: componentWillReceiveProps */
 // import HiddenMessages from './components/HiddenMessages';
@@ -29,11 +29,11 @@ import ReactDOM from 'react-dom';
 // );
 
 /* HiddenMessage2 component: HOC */
-import Message from './components/HiddenMessage2';
-ReactDOM.render(
-    <Message />,
-    document.getElementById('app')
-);
+// import Message from './components/HiddenMessage2';
+// ReactDOM.render(
+//     <Message />,
+//     document.getElementById('app')
+// );
 
 /* Display component: React.Children.only(children) */
 // import Display from './components/Display';
