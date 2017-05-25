@@ -12,7 +12,7 @@ import ReactDOM from 'react-dom';
 // );
 
 
-/* Clock demo -- componentDidMount, componentWillUnmount, unmountComponentAtNode */
+/* Clock component: componentDidMount, componentWillUnmount, unmountComponentAtNode */
 // import Clock from './components/Clock';
 // const target = document.getElementById('app');
 
@@ -21,12 +21,19 @@ import ReactDOM from 'react-dom';
 //     target
 // );
 
-/* Hidden Message demo -- componentWillReceiveProps */
+/* HiddenMessages component: componentWillReceiveProps */
 // import HiddenMessages from './components/HiddenMessages';
 // ReactDOM.render(
 //     <HiddenMessages />,
 //     document.getElementById('app')
 // );
+
+/* HiddenMessage2 component: HOC */
+import Message from './components/HiddenMessage2';
+ReactDOM.render(
+    <Message />,
+    document.getElementById('app')
+);
 
 /* Display component: React.Children.only(children) */
 // import Display from './components/Display';
@@ -53,18 +60,18 @@ import ReactDOM from 'react-dom';
 //     document.getElementById('app')
 // );
 
-/* CountryList: fetch api with componentWillMount or componentDidMount */
+/* CountryList: fetch api with componentWillMount or componentDidMount, HOC */
 // import CountryList from './components/CountryList';
 // ReactDOM.render(
-//     <CountryList />,
+//     <CountryList selected="Cuba" />,
 //     document.getElementById('app')
 // );
 
 /* Timeline: d3 library */
-// import App from './components/Timeline';
-import Timeline from './components/Timeline2';
-ReactDOM.render(
-    // <App />,
-    <Timeline name="History of Skiing" />,
-    document.getElementById('app')
-);
+// // import App from './components/Timeline';
+// import Timeline from './components/Timeline2';
+// ReactDOM.render(
+//     // <App />,
+//     <Timeline name="History of Skiing" />,
+//     document.getElementById('app')
+// );

@@ -2,7 +2,42 @@
  * Making Requests with Fetch (npm install isomorphic-fetch --save)
  */
 import React from 'react';
+import DataComponent from './hocs/DataComponent';
+import PropTypes from 'prop-types';
 
+/* Use HOC */
+// const Countries = ({ data }) =>
+//   (
+//     <ol className="people-list">
+//       {data.map((c, i) => {
+//         return <li key={i}>{c.name}</li>;
+//       })}
+//     </ol>
+//   );
+
+const Countries = ({ data, selected = "China" }) =>
+  (
+    <select className="people-list" defaultValue={selected}>
+      {data.map(({ name }, i) =>
+        <option key={i} value={name}>{name}</option>
+      )}
+    </select>
+  );
+
+Countries.propTypes = {
+  data: PropTypes.array.isRequired,
+  selected: PropTypes.string
+};
+
+const CountryList = DataComponent(
+  Countries,
+  "https://restcountries.eu/rest/v1/all"
+);
+
+export default CountryList;
+
+/*
+// not using hoc:
 export default class CountryList extends React.Component {
 
   constructor(props) {
@@ -31,5 +66,4 @@ export default class CountryList extends React.Component {
           {countryNames.map((x, i) => <li key={i}>{x}</li>)}
         </ul>;
   }
-
-}
+}*/
