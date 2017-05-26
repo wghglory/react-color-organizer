@@ -77,20 +77,32 @@ import ReactDOM from 'react-dom';
 // );
 
 /* Flux count down */
-import Countdown from './flux/CountdownComponent';
-import CountdownDispatcher from './flux/dispatcher.countdown';
-import countdownActions from './flux/action.countdown';
-import CountdownStore from './flux/store.countdown';
+// import Countdown from './flux/CountdownComponent';
+// import CountdownDispatcher from './flux/dispatcher.countdown';
+// import countdownActions from './flux/action.countdown';
+// import CountdownStore from './flux/store.countdown';
 
-const appDispatcher = new CountdownDispatcher();
-const actions = countdownActions(appDispatcher);
-const store = new CountdownStore(10, appDispatcher);
+// const appDispatcher = new CountdownDispatcher();
+// const actions = countdownActions(appDispatcher);
+// const store = new CountdownStore(10, appDispatcher);
 
-const render = count => ReactDOM.render(
-  <Countdown count={count} {...actions} />,
-  document.getElementById('app')
-);
+// const render = count => ReactDOM.render(
+//   <Countdown count={count} {...actions} />,
+//   document.getElementById('app')
+// );
 
-store.on("TICK", () => render(store.count));
-store.on("RESET", () => render(store.count));
-render(store.count);
+// store.on("TICK", () => render(store.count));
+// store.on("RESET", () => render(store.count));
+// render(store.count);
+
+/* redux demo */
+import storeFactory from './redux/store.color';
+import { addColor, removeColor, rateColor, sortColors } from './redux/actions.color';
+
+const store = storeFactory();
+store.dispatch(addColor("Bonkers Blue", "#1122FF"));
+store.dispatch(rateColor("8658c1d0-9eda-4a90-95e1-8001e8eb6036", 5));
+store.dispatch(sortColors("title"));
+store.dispatch(removeColor("a5685c39-6bdc-4727-9188-6c9a00bf7f95"));
+
+console.log('current state', store.getState());
