@@ -4,12 +4,12 @@ import ReactDOM from 'react-dom';
 // bootstrap core. specific plugin like jumbotron is imported in needed component.
 // import './bootstrap/_core.scss';
 
-// import App from './components/App';
+import App from './components/App';
 
-// ReactDOM.render(
-//     <App />,
-//     document.getElementById('app')
-// );
+ReactDOM.render(
+    <App />,
+    document.getElementById('app')
+);
 
 
 /* Clock component: componentDidMount, componentWillUnmount, unmountComponentAtNode */
@@ -96,13 +96,13 @@ import ReactDOM from 'react-dom';
 // render(store.count);
 
 /* redux demo */
-import storeFactory from './redux/store.color';
-import { addColor, removeColor, rateColor, sortColors } from './redux/actions.color';
+// import storeFactory from './redux/store.color';
+// import { addColor, removeColor, rateColor, sortColors } from './redux/actions.color';
 
-const store = storeFactory();
-store.dispatch(addColor("Bonkers Blue", "#1122FF"));
-store.dispatch(rateColor("8658c1d0-9eda-4a90-95e1-8001e8eb6036", 5));
-store.dispatch(sortColors("title"));
-store.dispatch(removeColor("a5685c39-6bdc-4727-9188-6c9a00bf7f95"));
+// const store = storeFactory();
+// store.dispatch(addColor("Bonkers Blue", "#1122FF"));
+// store.dispatch(rateColor("8658c1d0-9eda-4a90-95e1-8001e8eb6036", 5));
+// store.dispatch(sortColors("title"));
+// store.dispatch(removeColor("a5685c39-6bdc-4727-9188-6c9a00bf7f95"));
 
-console.log('current state', store.getState());
+// console.log('current state', store.getState());

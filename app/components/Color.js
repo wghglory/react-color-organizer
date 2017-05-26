@@ -1,7 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import StarRating from './StarRating';
+import TimeAgo from './TimeAgo';
 import '../scss/Color.scss';
+import FaTrash from 'react-icons/lib/fa/trash-o';
 
 /*const Color = ({ title, color, rating = 0, onRemove = f => f, onRate = f => f }) =>
     <section className="color">
@@ -58,13 +60,18 @@ export default class Color extends React.Component {
     }
 
     render() {
-        const { title, color, rating, onRemove, onRate } = this.props;
+        const { title, color, rating, timestamp, onRemove, onRate } = this.props;
         return (
             <section className="color" style={this.style}>
                 <h1 ref={t => this._title = t}>{title}</h1>
-                <button onClick={onRemove}>X</button>
+                <button onClick={onRemove}>
+                    <FaTrash />
+                </button>
                 <div className="color"
                     style={{ backgroundColor: color }}>
+                </div>
+                <div>
+                    <TimeAgo timestamp={timestamp} />
                 </div>
                 <div>
                     <StarRating starsSelected={rating} onRate={onRate} />
@@ -79,6 +86,7 @@ Color.propTypes = {
     title: PropTypes.string.isRequired,
     color: PropTypes.string.isRequired,
     rating: PropTypes.number,
+    timestamp: PropTypes.string.isRequired,
     onRemove: PropTypes.func,
     onRate: PropTypes.func
 };
