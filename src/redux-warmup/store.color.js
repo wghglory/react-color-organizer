@@ -167,7 +167,7 @@ const initialState = {
 // print(store.getState());
 
 
-// demo9: applyMiddleware() takes more than 1 paramters
+// demo9: applyMiddleware() takes more than 1 parameter
 const logger = store => next => action => {
   let result;
   // console.groupCollapsed("dispatching", action.type);

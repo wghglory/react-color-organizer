@@ -1,4 +1,4 @@
-# Redux 
+# Redux
 
 ## Reducer
 

@@ -1,13 +1,14 @@
-const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin'); // create index.html injecting index_bundle.js in dist folder
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const path = require("path");
+const HtmlWebpackPlugin = require("html-webpack-plugin"); // create index.html injecting index_bundle.js in dist folder
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const webpack = require("webpack");
 
 const config = {
-  entry: './app/index.js',
+  entry: "./src/index.js",
   output: {
-    path: path.resolve(__dirname, 'dist'),
-    filename: 'bundle.js',
-    publicPath: '/'
+    path: path.resolve(__dirname, "dist"),
+    filename: "bundle.js",
+    publicPath: "/",
   },
   devServer: {
     historyApiFallback: true,
@@ -16,17 +17,17 @@ const config = {
     rules: [
       {
         test: /\.(js)$/,
-        use: 'babel-loader',
-        exclude: /node_modules/
+        use: "babel-loader",
+        exclude: /node_modules/,
       },
       {
         test: /\.css$/,
         use: ExtractTextPlugin.extract({
-          fallback: 'style-loader',
+          fallback: "style-loader",
           use: [
-            { loader: 'css-loader', options: { modules: false, importLoaders: 1 } },
+            { loader: "css-loader", options: { modules: false, importLoaders: 1 } },
             {
-              loader: 'postcss-loader',
+              loader: "postcss-loader",
               // Note: if postcss.config.js is in root, don't use config path. Use only file is another folder
               // options: {
               //   config: {
@@ -42,29 +43,28 @@ const config = {
               //   ]
               // }
 
-              options:
-              {
+              options: {
                 config: {
                   ctx: {
                     cssnano: {},
-                    autoprefixer: {}
-                  }
-                }
-              }
-            }
-          ]
+                    autoprefixer: {},
+                  },
+                },
+              },
+            },
+          ],
         }),
-        exclude: /node_modules/
+        exclude: /node_modules/,
       },
       {
         test: /\.scss$/,
         exclude: /node_modules/,
         use: ExtractTextPlugin.extract({
-          fallback: 'style-loader',
+          fallback: "style-loader",
           use: [
-            { loader: 'css-loader', options: { modules: false, importLoaders: 1 } },
+            { loader: "css-loader", options: { modules: false, importLoaders: 1 } },
             {
-              loader: 'postcss-loader',
+              loader: "postcss-loader",
               // Note: if postcss.config.js is in root, don't use config path. Use only file is another folder
               // options: {
               //   config: {
@@ -80,32 +80,36 @@ const config = {
               //   ]
               // }
 
-              options:
-              {
+              options: {
                 config: {
                   ctx: {
                     cssnano: {},
-                    autoprefixer: {}
-                  }
-                }
-              }
+                    autoprefixer: {},
+                  },
+                },
+              },
             },
-            'sass-loader'
-          ]
-        })
+            "sass-loader",
+          ],
+        }),
       },
       {
         test: /\.csv$/,
-        loader: 'dsv-loader'
-      }
-    ]
+        loader: "dsv-loader",
+      },
+    ],
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: 'app/index.html'
+      template: "src/index.html",
     }),
-    new ExtractTextPlugin('style.css')
-  ]
+    new webpack.DefinePlugin({
+      "process.env": {
+        NODE_ENV: JSON.stringify(process.env.NODE_ENV),
+      },
+    }),
+    new ExtractTextPlugin("style.css"),
+  ],
 };
 
 /*// 1. package.json npm run build will set node env production. 
@@ -123,4 +127,3 @@ if (process.env.NODE_ENV === 'production') {
 */
 
 module.exports = config;
-
